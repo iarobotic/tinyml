@@ -1,0 +1,47 @@
+Instrucciones de instalación:
+
+1.- Tensor Flow verion 2.0 o superior.
+
+3.- Python 3.0 o superior.
+
+2.- Instalar las librerias de:
+    Numpy, Pandas, Keras.models, Tensorflow.Keras
+
+3.- Dataset a utilizar CIFAR-10:
+    https://www.cs.toronto.edu/~kriz/cifar.html descargar la versión CIFAR-10 python version para
+    procesamiento en local (o descargar desde el propio Notebook como haremos en este caso).
+
+
+Bonus:
+------
+4.- Instalación del proyecto Zephyr para ejecutar el emulador de microprocesadores en
+    un entorno PC (Ubuntu, macOS o Windows).
+
+    https://docs.zephyrproject.org/2.7.0/getting_started/index.html
+    Seguimos la guia de instalación según el sistema operativo a utilizar
+    hasta el apartado 'Build the Blink Sample'.
+
+    Prueba de funcionamiento (opcional):
+    ------------------------------------
+    cd ~/zephyrproject/zephyr/samples/synchronization
+    west build -b qemu_cortex_m3 .  
+    west build -t run    
+    <APARECERA LA ESTRUCTA DEL DISPOSITIVO CREADO>
+
+    Copiar la carpeta adjunt 'Cifar-10' en ~/zephyrproject/zephyr/samples/
+    esta carpeta es una copia del ejemplo 'Hello_world' pero adaptado a nuestro modelo.
+    
+    Incluye nuestros ficheros generados en la ejecución del Notebook, y que son:
+        \src\model.h  -> que es el modelo entrenado en formato Array-C
+        \src\input.h  -> que es una imagen de testeo en formato Array-C (ship_example.png)
+
+    Desde la carpeta Cifar-10 y para compilar, usamos:
+
+        west build -b qemu_cortex_m3 .  
+
+    Y para ejecutarlo, usamos:
+
+        west build -t run -> cuyo resultado se muestra en la imagen cifar_arm_emulation.png
+
+
+
